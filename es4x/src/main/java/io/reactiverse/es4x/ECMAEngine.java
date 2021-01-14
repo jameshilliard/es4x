@@ -341,6 +341,11 @@ public final class ECMAEngine {
 
     builder.option("js.foreign-object-prototype", "true");
 
+    builder.allowExperimentalOptions(true);
+    builder.option("js.commonjs-require", "true");
+    builder.option("js.commonjs-core-modules-replacements",
+      "os:" + ECMAEngine.class.getResource("polyfill/os.mjs").getPath());
+
     // the instance
     final Context context = builder.build();
 
